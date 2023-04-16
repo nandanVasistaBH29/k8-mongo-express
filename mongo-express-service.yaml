@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-express-service
+spec:
+  selector:
+    app: mongoexpress #ref for deployment
+  type: LoadBalancer # accepts external service
+  ports:
+    - protocol: TCP
+      port: 8081 # serivce port
+      targetPort: 8081 # container port of deployment docker container du port
+      nodePort: 30001 # this is the port through which we can access there is a range
