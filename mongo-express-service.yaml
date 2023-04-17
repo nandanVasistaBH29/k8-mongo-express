@@ -5,9 +5,11 @@ metadata:
 spec:
   selector:
     app: mongoexpress #ref for deployment
-  type: LoadBalancer # accepts external service
+  # type: LoadBalancer # accepts external service
+  # this makes it an external service but using ingress is better option
   ports:
     - protocol: TCP
       port: 8081 # serivce port
       targetPort: 8081 # container port of deployment docker container du port
-      nodePort: 30001 # this is the port through which we can access there is a range
+      # nodePort: 30001 # this is the port through which we can access there is a range
+      #this nodeport is also not needed as youre exposing your application via ingress
